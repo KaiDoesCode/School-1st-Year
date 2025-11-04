@@ -1,0 +1,42 @@
+ double hoursWorked = 0;
+ double hourlyRate = 0;
+ double sum = 0;
+ double regularPay = 0;
+ double overtimePay = 0;
+ double totalPay = 0;
+
+ Console.WriteLine("Type in your Hours ");
+ hoursWorked = double.Parse(Console.ReadLine());
+
+ Console.WriteLine("Type in the Rate");
+ hourlyRate = double.Parse(Console.ReadLine());
+
+ if (hoursWorked > 40)
+ {
+
+     Console.WriteLine("Regular ");
+     regularPay = 40 * hourlyRate;
+     Console.WriteLine($"{40} * {hourlyRate} = {regularPay}");
+
+
+     Console.WriteLine("Overtime ");
+     overtimePay = (hoursWorked - 40) * hourlyRate * 1.5;
+     Console.WriteLine($"{overtimePay}");
+
+
+     Console.WriteLine("Total Pay ");
+     totalPay = (regularPay + overtimePay);
+
+     Console.WriteLine("Your Total Pay is $" + totalPay);
+
+ }
+ else 
+ {
+     
+     regularPay = hoursWorked * hourlyRate;
+     Console.WriteLine($"{hoursWorked} * {hourlyRate} = {regularPay}");
+
+     Console.WriteLine("Your Total Pay is $" + regularPay);
+ }
+            
+ Console.ReadKey();
