@@ -1,0 +1,31 @@
+ double accountBalance = 0;
+ double withdrawAmount = 0;
+ double diff = 0;
+
+
+
+ 
+ Console.WriteLine("Please Enter Your Balance Number ");
+ accountBalance = double.Parse(Console.ReadLine());
+ Console.WriteLine("Your Balance Number is " + accountBalance);
+
+ 
+ Console.WriteLine("Withdraw ");
+ withdrawAmount = double.Parse(Console.ReadLine());
+ 
+
+ 
+ if (withdrawAmount > accountBalance) { 
+     
+ Console.WriteLine("You Cannot Withdraw This Amount");
+
+ }
+ else
+ {
+     diff = accountBalance - withdrawAmount;
+     Console.WriteLine("You Withdrawed " + withdrawAmount);
+
+     Console.WriteLine("Your Account Balance is " + diff);
+ }
+         
+   Console.ReadKey();
