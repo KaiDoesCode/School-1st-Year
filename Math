@@ -1,0 +1,51 @@
+            
+            double FN = 0;
+            double SN = 0;
+
+            
+            double sum = 0;
+            double diff = 0;
+            double product = 0; 
+            double quotient1 = 0;
+            double quotient2 = 0;
+            double remainder = 0;
+            
+            
+            
+            Console.WriteLine("Please Enter Your First Number ");
+            FN = double.Parse(Console.ReadLine());
+            Console.WriteLine("Your First Number is "+ FN);
+
+            
+            Console.WriteLine("Please Enter Your Second Number ");
+            SN = double.Parse(Console.ReadLine());
+            Console.WriteLine("Your Second Number is " + SN);
+
+            
+            sum = FN + SN;
+            diff = FN - SN;
+            product = FN * SN;
+            quotient1 = (int)(FN / SN); 
+            quotient2 = FN / SN;
+            remainder = FN % SN;
+
+            
+            Console.WriteLine($"{FN} + {SN} = {sum}");
+            Console.WriteLine($"{FN} - {SN} = {diff}");
+            Console.WriteLine($"{FN} * {SN} = {product}");
+            Console.WriteLine($"(int) ({FN} / {SN}) = {quotient1})");
+            Console.WriteLine($"{FN} / {SN} = {quotient2}");
+            Console.WriteLine($"{FN} % {SN} = {remainder}");
+
+            
+            Console.WriteLine($"{FN} == {SN}: {FN == SN}");
+            Console.WriteLine($"{FN} != {SN}: {FN != SN}");
+            Console.WriteLine($"{FN} > {SN}: {FN > SN}");
+            Console.WriteLine($"{FN} < {SN}: {FN < SN}");
+            Console.WriteLine($"{FN} >= {SN}: {FN >= SN}");
+            Console.WriteLine($"{FN} <= {SN}: {FN <= SN}");
+            
+
+
+
+            Console.ReadKey();
