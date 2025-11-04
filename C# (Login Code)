@@ -1,0 +1,21 @@
+string Username = "";
+string Password = "";
+
+while (Username != "Karl" || Password != "Programming")
+{
+    Console.WriteLine("Enter Username");
+    Username = Console.ReadLine();
+    Console.WriteLine("Enter Password");
+    Password = Console.ReadLine();
+    Console.Clear();
+}
+if (Username != "Karl" || Password != "Programming")
+{
+    Console.WriteLine("Invalid Credentials");
+    Console.ReadKey();
+    Console.Clear();
+    
+
+}
+Console.WriteLine("You Have Logged In.");
+Console.ReadKey();
