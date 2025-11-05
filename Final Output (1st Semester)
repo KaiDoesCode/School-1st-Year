@@ -1,0 +1,372 @@
+            // Login Entry
+            string Username = "";
+            string Password = "";
+
+            while (Username != "Karl" || Password != "Programming")
+            {
+                Console.WriteLine("Enter Username");
+                Username = Console.ReadLine();
+                Console.WriteLine("Enter Password");
+                Password = Console.ReadLine();
+                Console.Clear();
+            }
+            if (Username != "Karl" || Password != "Programming")
+            {
+                Console.WriteLine("Invalid Credentials");
+                Console.ReadKey();
+                Console.Clear();
+
+
+            }
+            Console.WriteLine("You Have Logged In.");
+            Console.ReadKey();
+            Console.Clear();
+
+            // 1 
+
+            Console.WriteLine("WELCOME TO THE CINEMA");
+            Console.WriteLine("");
+            Console.WriteLine("Here Is The List Of The Movies Available");
+            Console.WriteLine("=========================================");
+            Console.WriteLine("The Fast and the Furious");
+            Console.WriteLine("2 Fast 2 Furious");
+            Console.WriteLine("The Fast and the Furious: Tokyo Drift");
+            Console.WriteLine("=========================================");
+            Console.WriteLine("");
+            Console.WriteLine("Please Kindly Tap Any Key To See The Pricelist.");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Pricelist");
+            Console.WriteLine("=========================================");
+            Console.WriteLine("The Fast and the Furious");
+            Console.WriteLine("");
+            Console.WriteLine("Normal Rate: 400 PHP");
+            Console.WriteLine("Discount Rate: 300 PHP (More Than 5)");
+            Console.WriteLine("");
+            Console.WriteLine("2 Fast 2 Furious");
+            Console.WriteLine("");
+            Console.WriteLine("Normal Rate: 500 PHP");
+            Console.WriteLine("Discount Rate: 400 PHP (More Than 5)");
+            Console.WriteLine("");
+            Console.WriteLine("The Fast and the Furious: Tokyo Drift");
+            Console.WriteLine("");
+            Console.WriteLine("Normal Rate: 500 PHP");
+            Console.WriteLine("Discount Rate: 400 PHP (More Than 5)");
+            Console.WriteLine("=========================================");
+            Console.WriteLine("");
+            Console.WriteLine("Please Kindly Tap Any Key To Type In the Movie Youve Chosen.");
+            Console.ReadKey();
+            Console.Clear();
+
+            //2 Movie Selection and Amount Of People Their With.
+            string Movie = "";
+            int Person = 0;
+
+            Console.WriteLine("Kindly Type in The Movie You Want To Watch");
+            Console.WriteLine("=============================================");
+            Console.WriteLine("");
+            Movie = Console.ReadLine();
+            Console.WriteLine("");
+
+            Console.WriteLine("The Amount Of Tickets You Want To Get");
+            Console.WriteLine("=============================================");
+            Console.WriteLine("");
+            Person = int.Parse(Console.ReadLine());
+
+            int pricePerHead = 0;
+
+            switch (Movie)
+            {
+                case "The Fast and the Furious":
+                    if (Person > 5)
+                    {
+
+                        pricePerHead = 300;
+                    }
+                    else
+                    {
+
+                        pricePerHead = 400;
+                    }
+                    break;
+
+                case "2 Fast 2 Furious":
+                    if (Person > 5)
+                    {
+
+                        pricePerHead = 400;
+                    }
+                    else
+                    {
+
+                        pricePerHead = 500;
+                    }
+                    break;
+
+                case "The Fast and the Furious: Tokyo Drift":
+                    if (Person > 5)
+                    {
+
+                        pricePerHead = 400;
+                    }
+                    else
+                    {
+
+                        pricePerHead = 500;
+                    }
+                    break;
+
+            }
+            Console.ReadKey();
+            Console.Clear();
+
+            //3 Schedule Selection
+            int time = 0;
+            int morning = 1;
+            int afternoon = 2;
+            int evening = 3;
+
+            Console.WriteLine("Please Select Your Preferred Time To Watch The Movie.");
+            Console.WriteLine("====================================================");
+            Console.WriteLine("[1] 11:00am – 1:00pm");
+            Console.WriteLine("[2] 3:00pm – 5:00pm");
+            Console.WriteLine("[3] 7:00pm – 9:00pm");
+            Console.Write("Enter your choice (1-3): ");
+
+            if (int.TryParse(Console.ReadLine(), out time))
+            {
+                if (time == morning)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You Selected 11:00am - 1:00pm Schedule");
+                }
+                else if (time == afternoon)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You Selected 3:00pm – 5:00pm Schedule.");
+                }
+                else if (time == evening)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("You Selected 7:00pm – 9:00pm Schedule.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid selection. Please choose 1, 2, or 3.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+            Console.ReadKey();
+            Console.Clear();
+
+            //4 Seat Plan Selection
+
+            int totalSeats = 50;
+            int seatsPerRow = 10;
+
+            Console.WriteLine("=== Seat Plan ===");
+            Console.WriteLine("=====================");
+            Console.WriteLine("");
+
+            for (int seat = 1; seat <= totalSeats; seat++)
+            {
+                Console.Write(seat + " ");
+                if (seat % seatsPerRow == 0)
+                {
+                    Console.WriteLine();
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+            int[] chosenSeats = new int[Person];
+
+            for (int i = 0; i < Person; i++)
+            {
+                Console.Write("Choose seat number for ticket " + (i + 1) + ": ");
+                int seatChoice = Convert.ToInt32(Console.ReadLine());
+
+
+                if (seatChoice >= 1 && seatChoice <= totalSeats)
+                {
+                    chosenSeats[i] = seatChoice;
+                    Console.WriteLine("Seat " + seatChoice + " selected.");
+                    Console.WriteLine("");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid seat number. Please choose between 1 and 50.");
+
+                }
+            }
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("You selected these seats:");
+            Console.WriteLine("");
+
+            foreach (int seat in chosenSeats)
+            {
+                Console.Write("[" + seat + "] ");
+            }
+            Console.ReadKey();
+            Console.Clear();
+
+            //5 Receipt
+
+            double totalAmount = pricePerHead * Person;
+
+            Console.WriteLine("===================================");
+            Console.WriteLine("         CINEMA RECEIPT");
+            Console.WriteLine("===================================");
+            Console.WriteLine("Movie Title: " + Movie);
+            Console.WriteLine("Schedule: " +  time);
+            Console.WriteLine("No. of Tickets: " +  Person);
+            Console.WriteLine("Price per Ticket: PHP " + pricePerHead);
+            Console.WriteLine("-----------------------------------");
+            Console.Write("Selected Seats: ");
+
+            foreach (int seat in chosenSeats)
+            {
+                Console.Write("[" + seat + "]");
+            }
+            Console.WriteLine();
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Total Amount : PHP " + totalAmount);
+            Console.WriteLine("===================================");
+            Console.WriteLine("Thank you for choosing our cinema!");
+            Console.WriteLine("Enjoy watching " + Movie + "!");
+            Console.WriteLine("===================================");
+            Console.ReadKey();
+            Console.Clear();
+
+            //6 Snack Option
+
+            int Food = 0;
+            string foodName = "";
+
+            while (true)
+            {
+
+                Console.WriteLine("====================================================");
+                Console.WriteLine("            W E L C O M E   T O   T H E");
+                Console.WriteLine("           O R D E R I N G   S Y S T E M");
+                Console.WriteLine("====================================================");
+                Console.WriteLine("FOOD SELECTION");
+                Console.WriteLine("====================================================");
+                Console.WriteLine("[1] Popcorn - PHP 130");
+                Console.WriteLine("[2] Chicken Strips - PHP 200");
+                Console.WriteLine("[3] Nachos - PHP 170");
+                Console.WriteLine("[4] Classic Cheese Burger - PHP 195");
+                Console.WriteLine("[5] Classic Hotdog Sandwich - PHP 150");
+                Console.WriteLine("====================================================");
+                Console.WriteLine("DRINK SELECTION");
+                Console.WriteLine("====================================================");
+                Console.WriteLine("[6] Canned Coke - PHP 50");
+                Console.WriteLine("[7] Canned Sprite - PHP 50");
+                Console.WriteLine("[8] Orange Juice - PHP 50");
+                Console.WriteLine("[9] Cranberry Juice - PHP 70");
+                Console.WriteLine("[10] Bottled Water - PHP 25");
+                Console.WriteLine("====================================================");
+                Console.WriteLine("[0] Exit");
+                Console.WriteLine("====================================================");
+                Console.Write("Kindly Select a Number of Your Desire:  ");
+
+
+                if (int.TryParse(Console.ReadLine(), out Food))
+                {
+                    if (Food == 0)
+                    {
+                        Console.WriteLine("Feel Free To Comeback If You Want To Buy");
+                        break;
+                    }
+                    else if (Food == 1)
+                    {
+                        foodName = "Popcorn";
+                        pricePerHead = 130;
+                    }
+                    else if (Food == 2)
+                    {
+                        foodName = "Chicken Strips";
+                        pricePerHead = 200;
+                    }
+                    else if (Food == 3)
+                    {
+                        foodName = "Nachos";
+                        pricePerHead = 170;
+                    }
+                    else if (Food == 4)
+                    {
+                        foodName = "Classic Cheese Burger";
+                        pricePerHead = 195;
+                    }
+                    else if (Food == 5)
+                    {
+                        foodName = "Classic Hotdog Sandwich";
+                        pricePerHead = 150;
+                    }
+                    else if (Food == 6)
+                    {
+                        foodName = "Canned Coke";
+                        pricePerHead = 50;
+                    }
+                    else if (Food == 7)
+                    {
+                        foodName = "Canned Sprite";
+                        pricePerHead = 50;
+                    }
+                    else if (Food == 8)
+                    {
+                        foodName = "Orange Juice";
+                        pricePerHead = 50;
+                    }
+                    else if (Food == 9)
+                    {
+                        foodName = "Cranberry Juice";
+                        pricePerHead = 70;
+                    }
+                    else if (Food == 10)
+                    {
+                        foodName = "Bottled Water";
+                        pricePerHead = 25;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number from the selection\n");
+                        Console.ReadKey();
+                        continue;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a number from the selection\n");
+                    Console.ReadKey();
+                    continue;
+                }
+                Console.Clear();
+
+
+                Console.Write("Enter quantity: ");
+                int qty = int.Parse(Console.ReadLine());
+                double total = pricePerHead * qty;
+
+
+                Console.Clear();
+                Console.WriteLine("====================================================");
+                Console.WriteLine("                    RECEIPT");
+                Console.WriteLine("====================================================");
+                Console.WriteLine($"Food Item: {foodName}");
+                Console.WriteLine($"Price per Item: PHP {pricePerHead}");
+                Console.WriteLine($"Quantity: {qty}");
+                Console.WriteLine("----------------------------------------------------");
+                Console.WriteLine($"TOTAL: PHP {total}");
+                Console.WriteLine("====================================================");
+                Console.WriteLine("Thank you for your order!");
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey();
+            }
