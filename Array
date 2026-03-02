@@ -1,13 +1,41 @@
-class ProgramX 
+    class ProgramX 
 {
     static void Main()
     {
-        List<string> playlist = new List<string>();
+                List<string> playlist = new List<string>()
+                {
+                    "One Dance",
+                    "God's Plan",
+                    "In My Feelings",
+                    "Hotline Bling",
+                    "Started From The Bottom",
+                    "NonStop",
+                    "Take Care",
+                    "Headlines",
+                    "Best I Ever Had",
+                    "Hold On, Were Going Home",
+                    "PassionFruit",
+                    "Laugh Now Cry Later",
+                    "Nice For What", 
+                    "Forever",
+                    "Not You Too",
+                    "Nokia",
+                    "Marvins Room",
+                    "Fire & Desire",
+                    "Views",
+                    "Controlla",
+                    "From Time",
+                    "Pipe Down",
+                    "Trust Issues"
+                    
+
+                }; 
+                
         bool running = true;
 
         while (running)
         {
-            Console.WriteLine("\n=== Music Playlist Manager ===");
+            Console.WriteLine("=== Music Playlist Manager ===");
             Console.WriteLine("1. Add Songs");
             Console.WriteLine("2. Display Playlist");
             Console.WriteLine("3. Search for Song");
@@ -54,6 +82,7 @@ class ProgramX
                     Console.WriteLine("Invalid choice. Try again.");
                     break;
             }
+                    
         }
     }
 
@@ -183,4 +212,14 @@ class ProgramX
             Console.WriteLine("Playlist reversed!");
             DisplayPlaylist(playlist);
         }
+
+        Console.ReadLine();
+        Console.Clear();
     }
+            
+
+
+        }
+    }
+}
+
