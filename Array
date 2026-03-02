@@ -1,0 +1,186 @@
+class ProgramX 
+{
+    static void Main()
+    {
+        List<string> playlist = new List<string>();
+        bool running = true;
+
+        while (running)
+        {
+            Console.WriteLine("\n=== Music Playlist Manager ===");
+            Console.WriteLine("1. Add Songs");
+            Console.WriteLine("2. Display Playlist");
+            Console.WriteLine("3. Search for Song");
+            Console.WriteLine("4. Shuffle Playlist");
+            Console.WriteLine("5. Remove Song");
+            Console.WriteLine("6. Reverse Playlist");
+            Console.WriteLine("7. Exit");
+            Console.Write("Choose an option: ");
+
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    AddSongs(playlist);
+                    break;
+
+                case "2":
+                    DisplayPlaylist(playlist);
+                    break;
+
+                case "3":
+                    SearchSong(playlist);
+                    break;
+
+                case "4":
+                    ShufflePlaylist(playlist);
+                    break;
+
+                case "5":
+                    RemoveSong(playlist);
+                    break;
+
+                case "6":
+                    ReversePlaylist(playlist);
+                    break;
+
+                case "7":
+                    running = false;
+                    Console.WriteLine("Goodbye!");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Try again.");
+                    break;
+            }
+        }
+    }
+
+    static void AddSongs(List<string> playlist)
+    {
+        Console.WriteLine("Enter song names (type 'done' to stop):");
+
+        while (true)
+        {
+            string song = Console.ReadLine();
+
+            if (song.ToLower() == "done")
+                break;
+
+            if (!string.IsNullOrWhiteSpace(song))
+            {
+                playlist.Add(song);
+                Console.WriteLine($"Added: {song}");
+            }
+        }
+    }
+
+    static void DisplayPlaylist(List<string> playlist)
+    {
+        if (playlist.Count == 0)
+        {
+            Console.WriteLine("The playlist is empty.");
+            return;
+        }
+
+        Console.WriteLine("\nCurrent Playlist:");
+        for (int i = 0; i < playlist.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {playlist[i]}");
+        }
+    }
+
+    static void SearchSong(List<string> playlist)
+    {
+        Console.Write("Enter song name to search: ");
+        string search = Console.ReadLine();
+
+        bool found = false;
+
+        foreach (string song in playlist)
+        {
+            if (song.Equals(search, StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Found: {song}");
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No matching songs found.");
+        }
+    }
+
+    static void ShufflePlaylist(List<string> playlist)
+    {
+        if (playlist.Count < 2)
+        {
+            Console.WriteLine("Playlist must have at least two songs to shuffle.");
+            return;
+        }
+
+        Console.Write("Do you want to shuffle the playlist? (yes/no): ");
+        string answer = Console.ReadLine().ToLower();
+
+        if (answer == "yes")
+        {
+            Random rand = new Random();
+
+            for (int i = playlist.Count - 1; i > 0; i--)
+            {
+                int j = rand.Next(i + 1);
+                string temp = playlist[i];
+                playlist[i] = playlist[j];
+                playlist[j] = temp;
+            }
+
+            Console.WriteLine("Playlist shuffled!");
+            DisplayPlaylist(playlist);
+        }
+    }
+
+    static void RemoveSong(List<string> playlist)
+    {
+        if (playlist.Count == 0)
+        {
+            Console.WriteLine("Playlist is empty.");
+            return;
+        }
+
+        Console.Write("Do you want to remove a song? (yes/no): ");
+        string answer = Console.ReadLine().ToLower();
+
+        if (answer == "yes")
+        {
+            Console.Write("Enter song name to remove: ");
+            string songToRemove = Console.ReadLine();
+
+            bool removed = playlist.Remove(songToRemove);
+
+            if (removed)
+                Console.WriteLine("Song removed successfully.");
+            else
+                Console.WriteLine("Song not found.");
+        }
+    }
+
+    static void ReversePlaylist(List<string> playlist)
+    {
+        if (playlist.Count < 2)
+        {
+            Console.WriteLine("Playlist must have at least two songs to reverse.");
+            return;
+        }
+
+        Console.Write("Do you want to reverse the playlist? (yes/no): ");
+        string answer = Console.ReadLine().ToLower();
+
+        if (answer == "yes")
+        {
+            playlist.Reverse();
+            Console.WriteLine("Playlist reversed!");
+            DisplayPlaylist(playlist);
+        }
+    }
